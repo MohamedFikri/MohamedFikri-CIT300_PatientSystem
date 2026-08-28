@@ -1,4 +1,4 @@
-package src;
+
 
 import ds.PatientBST;
 import ds.EmergencyQueue;
