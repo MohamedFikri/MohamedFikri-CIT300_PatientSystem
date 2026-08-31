@@ -1,5 +1,3 @@
-
-
 import ds.PatientBST;
 import ds.EmergencyQueue;
 import ds.TreatmentStack;
@@ -32,43 +30,55 @@ public class Main {
             System.out.println("12. Exit");
             System.out.print("Enter your choice: ");
             
-            int choice = sc.nextInt();
-            sc.nextLine(); // consume newline
+            // இனி எல்லா input-um String-ஆ படிக்கும், பிறகு எண்ணாக மாத்தும்
+            String choiceInput = sc.nextLine();
+            int choice = 0;
+            try {
+                choice = Integer.parseInt(choiceInput);
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input! Please enter a number only.");
+                continue;
+            }
 
             switch (choice) {
                 case 1:
-                    System.out.print("Enter Patient ID: ");
-                    int id = sc.nextInt();
-                    sc.nextLine();
+                    System.out.print("Enter Patient ID (Number only): ");
+                    int id = Integer.parseInt(sc.nextLine());
+                    
                     System.out.print("Enter Name: ");
                     String name = sc.nextLine();
-                    System.out.print("Enter Age: ");
-                    int age = sc.nextInt();
-                    sc.nextLine();
+                    
+                    System.out.print("Enter Age (Number only): ");
+                    int age = Integer.parseInt(sc.nextLine());
+                    
                     System.out.print("Enter Contact Number: ");
                     String contact = sc.nextLine();
+                    
                     System.out.print("Enter Medical Condition: ");
                     String condition = sc.nextLine();
+                    
                     bst.insert(new Patient(id, name, age, contact, condition));
                     System.out.println("Patient added successfully!");
                     break;
                 case 2:
-                    System.out.print("Enter Patient ID to search: ");
-                    Patient found = bst.search(sc.nextInt());
+                    System.out.print("Enter Patient ID to search (Number only): ");
+                    int searchId = Integer.parseInt(sc.nextLine());
+                    Patient found = bst.search(searchId);
                     if (found != null) System.out.println("Patient Found: " + found);
                     else System.out.println("Patient not found.");
                     break;
                 case 3:
-                    System.out.print("Enter Patient ID to delete: ");
-                    bst.delete(sc.nextInt());
+                    System.out.print("Enter Patient ID to delete (Number only): ");
+                    int deleteId = Integer.parseInt(sc.nextLine());
+                    bst.delete(deleteId);
                     System.out.println("Delete operation completed.");
                     break;
                 case 4:
                     bst.inOrder();
                     break;
                 case 5:
-                    System.out.print("Enter Patient ID to add to Queue: ");
-                    int qId = sc.nextInt();
+                    System.out.print("Enter Patient ID to add to Queue (Number only): ");
+                    int qId = Integer.parseInt(sc.nextLine());
                     Patient qPatient = bst.search(qId);
                     if (qPatient != null) {
                         queue.enqueue(qPatient);
@@ -85,17 +95,21 @@ public class Main {
                     queue.displayQueue();
                     break;
                 case 8:
-                    System.out.print("Enter Visit ID: ");
-                    int vId = sc.nextInt();
-                    sc.nextLine();
+                    System.out.print("Enter Visit ID (Number only): ");
+                    int vId = Integer.parseInt(sc.nextLine());
+                    
                     System.out.print("Enter Date: ");
                     String date = sc.nextLine();
+                    
                     System.out.print("Enter Doctor Name: ");
                     String doc = sc.nextLine();
+                    
                     System.out.print("Enter Diagnosis: ");
                     String diag = sc.nextLine();
+                    
                     System.out.print("Enter Treatment given: ");
                     String treat = sc.nextLine();
+                    
                     stack.push(new Visit(vId, date, doc, diag, treat));
                     System.out.println("Treatment record pushed!");
                     break;
@@ -104,17 +118,21 @@ public class Main {
                     if (lastTreat != null) System.out.println("Last Treatment removed: " + lastTreat);
                     break;
                 case 10:
-                    System.out.print("Enter Visit ID: ");
-                    int hId = sc.nextInt();
-                    sc.nextLine();
+                    System.out.print("Enter Visit ID (Number only): ");
+                    int hId = Integer.parseInt(sc.nextLine());
+                    
                     System.out.print("Enter Date: ");
                     String hDate = sc.nextLine();
+                    
                     System.out.print("Enter Doctor Name: ");
                     String hDoc = sc.nextLine();
+                    
                     System.out.print("Enter Diagnosis: ");
                     String hDiag = sc.nextLine();
+                    
                     System.out.print("Enter Treatment: ");
                     String hTreat = sc.nextLine();
+                    
                     history.addVisit(new Visit(hId, hDate, hDoc, hDiag, hTreat));
                     break;
                 case 11:

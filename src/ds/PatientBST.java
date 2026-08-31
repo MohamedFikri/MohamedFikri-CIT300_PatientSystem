@@ -4,7 +4,6 @@ import models.Patient;
 
 public class PatientBST {
     
-    // Node class for BST
     private class Node {
         Patient patient;
         Node left, right;
@@ -21,7 +20,6 @@ public class PatientBST {
         root = null;
     }
 
-    // Insert a new patient
     public void insert(Patient patient) {
         root = insertRec(root, patient);
     }
@@ -39,7 +37,6 @@ public class PatientBST {
         return root;
     }
 
-    // Search for a patient using ID
     public Patient search(int id) {
         return searchRec(root, id);
     }
@@ -54,7 +51,6 @@ public class PatientBST {
         return searchRec(root.right, id);
     }
 
-    // Delete a patient using ID
     public void delete(int id) {
         root = deleteRec(root, id);
     }
@@ -67,11 +63,9 @@ public class PatientBST {
         else if (id > root.patient.getPatientId())
             root.right = deleteRec(root.right, id);
         else {
-            // node with only one child or no child
             if (root.left == null) return root.right;
             if (root.right == null) return root.left;
 
-            // node with two children: Get the inorder successor (smallest in the right subtree)
             root.patient = minValue(root.right);
             root.right = deleteRec(root.right, root.patient.getPatientId());
         }
@@ -87,8 +81,12 @@ public class PatientBST {
         return minv;
     }
 
-    // Perform in-order traversal to display patients in ascending order of ID
+    // Fix 1: Empty Tree Message சேர்த்து மாத்தியது
     public void inOrder() {
+        if (root == null) {
+            System.out.println("No patients in the tree yet. Please insert patients first.");
+            return;
+        }
         inOrderRec(root);
     }
 
