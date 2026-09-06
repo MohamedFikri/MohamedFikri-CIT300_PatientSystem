@@ -46,6 +46,18 @@ This is a Java-based Patient Management System developed for the CIT300 assignme
 - Display full visit history for a patient
 
 ## Project Structure
+CIT300_PatientsSystem/
+├── README.md
+└── src/
+├── Main.java
+├── Patient.java
+├── PatientBST.java
+├── EmergencyQueue.java
+├── TreatmentHistory.java
+├── Visit.java
+└── VisitLinkedList.java
+
+text
 
 ## GitHub Commit History
 This project was developed progressively with multiple meaningful commits, including:
