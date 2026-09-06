@@ -46,3 +46,24 @@ This is a Java-based Patient Management System developed for the CIT300 assignme
 - Display full visit history for a patient
 
 ## Project Structure
+
+## GitHub Commit History
+This project was developed progressively with multiple meaningful commits, including:
+- Created project structure
+- Implemented patient BST
+- Added BST search and deletion
+- Implemented emergency queue
+- Implemented treatment stack
+- Implemented patient linked list
+- Added testing and Main menu integration
+
+## Technologies Used
+- **Language:** Java (JDK 17+)
+- **IDE:** VS Code
+- **Version Control:** Git & GitHub
+
+## Reflection
+This assignment provided hands-on experience with core data structures and their real-world applications in a healthcare management context. Understanding when to use FIFO vs LIFO, and the efficiency of BST over simple arrays, was a key learning outcome.
+
+---
+*Submitted for CIT300 Assignment - SLTC Research University*
